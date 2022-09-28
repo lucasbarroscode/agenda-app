@@ -19,14 +19,24 @@ export class ContatoComponent implements OnInit {
 
     this.formulario = this.fb.group({
       nome : ['', Validators.required],
-      email: ['', Validators.email]
+      email: ['', [Validators.required, Validators.email]]
     })
 
 
   }
 
     submit(){
-      console.log(this.formulario?.value)
+
+      
+      const erroNomeRequired = this.formulario.get('nome')?.errors?.['required'];
+      const erroEmailInvalido = this.formulario.get('email')?.errors?.['email'];
+      const erroEmailRequired = this.formulario.get('email')?.errors?.['required'];
+      
+      
+      console.log('erroNomeRequired', erroNomeRequired);
+      console.log('erroEmailInvalido', erroEmailInvalido);
+      console.log('erroEmailRequired', erroEmailRequired);
+
       //this.service.save(c).subscribe(resposta => {
         //console.log(resposta);
       //});
