@@ -1,42 +1,54 @@
 <mat-toolbar>Contatos</mat-toolbar>
 
-<form [formGroup]="formulario" (ngSubmit)="submit()">
-    <mat-form-field class="full-width">
-        <mat-label>Nome: </mat-label>
-        <input formControlName="nome" matInput placeholder="Digite seu nome" />
+<mat-tab-group>
+    <mat-tab label="Todos"></mat-tab>
 
 
-     
-    </mat-form-field>
+    <mat-tab label="Novos">
+        <mat-card class="half-width">
+            <mat-card-title>Novo Contato</mat-card-title>
 
-    <div *ngIf="formulario.get('nome')?.errors">
-        <div *ngIf="formulario.get('nome')?.errors?.['required']">
-            Campo nome é obrigatório
-        </div>
-    </div>
-
-
-    <mat-form-field class="full-width">
-        <mat-label>Email: </mat-label>
-        <input formControlName="email" matInput placeholder="Digite seu email" />
+            <form [formGroup]="formulario" (ngSubmit)="submit()">
+                <mat-form-field class="full-width">
+                    <mat-label>Nome: </mat-label>
+                    <input formControlName="nome" matInput placeholder="Digite seu nome" />
 
 
-        </mat-form-field>
 
-        <br />
+                </mat-form-field>
 
-
-        <div *ngIf="formulario.get('email')?.errors">
-            <div *ngIf="formulario.get('email')?.errors?.['email']">
-                Email inválido
-            </div>
-        </div>
-
-        <div *ngIf="formulario.get('email')?.errors?.['required']">
-            Campo Email é obrigatório
-        </div>
-
-    <button [disabled]="!formulario.valid" mat-button color="primary">Adicionar</button>
+                <div *ngIf="formulario.get('nome')?.errors">
+                    <div *ngIf="formulario.get('nome')?.errors?.['required']">
+                        Campo nome é obrigatório
+                    </div>
+                </div>
 
 
-</form>
+                <mat-form-field class="full-width">
+                    <mat-label>Email: </mat-label>
+                    <input formControlName="email" matInput placeholder="Digite seu email" />
+
+
+                </mat-form-field>
+
+                <br />
+
+
+                <div *ngIf="formulario.get('email')?.errors">
+                    <div *ngIf="formulario.get('email')?.errors?.['email']">
+                        Email inválido
+                    </div>
+                </div>
+
+                <div *ngIf="formulario.get('email')?.errors?.['required']">
+                    Campo Email é obrigatório
+                </div>
+
+                <button [disabled]="!formulario.valid" mat-button color="primary">Adicionar</button>
+
+
+            </form>
+        </mat-card>
+    </mat-tab>
+
+</mat-tab-group>
