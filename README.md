@@ -7,6 +7,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 # Informações Importantes
 Esse projeto está utilizando o angular material  (https://material.angular.io/)
 
+https://material.io/resources
+
+Icons - https://fonts.google.com/icons
+
 
 ## Development server
 
