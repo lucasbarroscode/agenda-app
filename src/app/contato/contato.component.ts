@@ -50,6 +50,8 @@ export class ContatoComponent implements OnInit {
       this.service.save(contato).subscribe(resposta => {
         this.contatos.push(resposta);
         console.log(this.contatos);
+        let lista: Contato[]= [... this.contatos, resposta]
+        this.contatos = lista;
       });
     }
 
