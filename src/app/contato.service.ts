@@ -28,7 +28,9 @@ export class ContatoService {
    }
 
    upload(contato:Contato, formData: FormData) : Observable<any>{
-      return this.http.put(`${this.url}/${contato.id}/foto`, formData);
+      //como por padrão o retorno é por json e o objeto retornado é um byte.. é feita a indicação do tipo que realmente é retornado.. {responseType
+   
+      return this.http.put(`${this.url}/${contato.id}/foto`, formData, {responseType : 'blob'});
    }
 
 
